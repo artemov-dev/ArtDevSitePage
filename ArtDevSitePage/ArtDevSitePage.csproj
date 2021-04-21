@@ -52,19 +52,54 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Pages\Pages.EventReceiver.cs">
+      <DependentUpon>Pages.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\Pages\Pages.feature">
+      <FeatureId>{34507345-5863-4268-a0f1-b85b8dd274b4}</FeatureId>
+    </None>
     <None Include="key.snk" />
+    <None Include="Layouts\ArtDevSitePage\React\package-lock.json" />
+    <None Include="Layouts\ArtDevSitePage\React\package.json" />
+    <None Include="Layouts\ArtDevSitePage\React\public\header.bundle.js.map" />
+    <None Include="Layouts\ArtDevSitePage\React\public\runtime.bundle.js.map" />
+    <None Include="Layouts\ArtDevSitePage\React\public\vendors.bundle.js.map" />
+    <None Include="Layouts\ArtDevSitePage\React\tsconfig.json" />
+    <None Include="Layouts\ArtDevSitePage\React\tslint.json" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{50a2e84a-3379-4ebd-a0ef-5f774da0ebeb}</SharePointProjectItemId>
+    </None>
     <None Include="Package\Package.package">
       <PackageId>{0cc95e42-6b3d-4d3e-a082-9fe51cfa9f87}</PackageId>
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="SitePages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e1c07243-5a8a-4b76-a1b2-49136895530d}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
+    <ProjectReference Include="..\..\ArtDev\ArtDev\ArtDev.csproj">
+      <Project>{76a2735d-d770-4980-840e-5933855f3d80}</Project>
+      <Name>ArtDev</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\Pages\Pages.Template.xml">
+      <DependentUpon>Pages.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\ArtDevSitePage\React\babel.config.js" />
+    <Content Include="Layouts\ArtDevSitePage\React\public\header.bundle.js" />
+    <Content Include="Layouts\ArtDevSitePage\React\public\runtime.bundle.js" />
+    <Content Include="Layouts\ArtDevSitePage\React\public\vendors.bundle.js" />
+    <Content Include="Layouts\ArtDevSitePage\React\src\header.js" />
+    <Content Include="Layouts\ArtDevSitePage\React\webpack.config.js" />
+    <Content Include="SitePages\Elements.xml" />
+    <Content Include="SitePages\MainPages.aspx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -72,4 +107,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup>
+    <PreBuildEvent>cd ../../Layouts/ArtDevSitePage/React/
+npm run build</PreBuildEvent>
+  </PropertyGroup>
 </Project>

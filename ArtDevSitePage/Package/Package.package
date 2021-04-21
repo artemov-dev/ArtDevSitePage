@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package dslVersion="1.0.0.0" 
-        Id="0cc95e42-6b3d-4d3e-a082-9fe51cfa9f87" 
-        solutionId="0cc95e42-6b3d-4d3e-a082-9fe51cfa9f87" 
-        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
-        name="ArtDevSitePage"
-        sharePointProductVersion="19.0">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0cc95e42-6b3d-4d3e-a082-9fe51cfa9f87" solutionId="0cc95e42-6b3d-4d3e-a082-9fe51cfa9f87" resetWebServer="false" sharePointProductVersion="19.0" name="ArtDevSitePage" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="ArtDev.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\..\ArtDev\ArtDev\ArtDev.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="34507345-5863-4268-a0f1-b85b8dd274b4" />
+    <featureReference itemId="fab69f23-e5ce-4d59-b299-7d0fd7b80e18" projectPath="..\..\ArtDevWebPart\ArtDevWebPart\ArtDevWebPart.csproj" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="50a2e84a-3379-4ebd-a0ef-5f774da0ebeb" />
+  </projectItems>
 </package>
