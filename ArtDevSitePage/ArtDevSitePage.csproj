@@ -109,6 +109,7 @@
   <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup>
     <PreBuildEvent>cd ../../Layouts/ArtDevSitePage/React/
-npm run build</PreBuildEvent>
+npm run rebuild
+</PreBuildEvent>
   </PropertyGroup>
 </Project>
